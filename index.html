@@ -12,10 +12,26 @@
     <h1 class="title" style="color:purple;font-size:100px;text-align:center;">really cool website</h1>
       <h2 style="text-align:center;">by me(nqthan)</h2>
       <br>
-      <button type="button"
-      onclick="document.getElementById('demo').innerHTML = Date()">
-      Click me to display Date and Time.</button>
-      <p id="demo" style="color:white"></p>
+      <button type="button" onclick="document.getElementById('demo').innerHTML = Date()"> Click me to display Date and Time.</button>
+        <p id="demo" style="color:white"></p>
+      <br>
+      <h2 style="color:white;">Load and Display Local HTML File</h2>
+        <input type="file" id="fileInput" accept=".html, .txt">
+        <div id="output" style="border:1px solid #ccc; padding:10px; margin-top:10px;color:white;">
+        <!-- Loaded HTML content will appear here -->
+        </div>
+      <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              document.getElementById('output').innerHTML = e.target.result;
+            };
+            reader.readAsText(file);
+          }
+        });
+      </script>
       <br>
       <h2 style="color:red">VERY IMPORTANT LINK</h2>
         <a href="linklinklinklink.html">linklinklinklink</a>
